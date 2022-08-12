@@ -1,6 +1,18 @@
 import React from 'react'
 import { Text, StyleSheet, Dimensions, TouchableHighlight } from 'react-native'
 
+export default props => {
+    const estilosBotoes = [styles.botao]
+    if (props.duas) estilosBotoes.push(styles.botaoDuasVezesMaior)
+    if (props.tres) estilosBotoes.push(styles.botaoTresVezesMaior)
+    if (props.operacao) estilosBotoes.push(styles.botoesDeOperacao)
+    return (
+        <TouchableHighlight onPress={props.onClick}>
+            <Text style={estilosBotoes}>{props.label}</Text>
+        </TouchableHighlight>
+    ) 
+}
+
 const styles = StyleSheet.create({
     botao: {
         fontSize: 40,
@@ -25,16 +37,3 @@ const styles = StyleSheet.create({
         width: (Dimensions.get('window').width / 4) * 3
     }
 })
-
-
-export default props => {
-    const estilosBotoes = [styles.botao]
-    if (props.duas) estilosBotoes.push(styles.botaoDuasVezesMaior)
-    if (props.tres) estilosBotoes.push(styles.botaoTresVezesMaior)
-    if (props.operacao) estilosBotoes.push(styles.botoesDeOperacao)
-    return (
-        <TouchableHighlight onPress={props.onClick}>
-            <Text style={estilosBotoes}>{props.label}</Text>
-        </TouchableHighlight>
-    ) 
-}

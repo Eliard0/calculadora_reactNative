@@ -1,6 +1,13 @@
 import React from "react";
 import { Text, StyleSheet, View} from "react-native";
 
+export default props => 
+<View style={styles.tela}>
+        <Text style={styles.valorTela} numberOfLines={1}>
+            {props.value}
+        </Text>
+    </View>
+
 const styles = StyleSheet.create({
     tela: {
         flex: 1,
@@ -14,10 +21,3 @@ const styles = StyleSheet.create({
         color: '#fff',
     }
 })
-
-export default props => 
-    <View style={styles.tela}>
-        <Text style={styles.valorTela} numberOfLines={1}>
-            {props.value}
-        </Text>
-    </View>
